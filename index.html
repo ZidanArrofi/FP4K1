@@ -31,42 +31,106 @@
     <div class="fakeLoader"></div>
     <!-- Header End -->
 
-    <!-- Section 1 start -->
-    <section class="head-section">
-      <div class="text-center align-middle">
-        <i><h1>Indonesian Weather Forecast</h1></i>
-        <div class="row mt-3">
-          <div class="col-4"></div>
-          <div class="col-4">
-            <marquee>
-              <h2>Final Project 4 Kelompok 1</h2>
-            </marquee>
+    <!-- Section 2 start -->
+    <section>
+      <div class="align-middle text-center mt-4">
+        <div class="kota" id="city"></div>
+        <div class="hari">
+          <span id="date-value"> </span>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 col-12 mt-3">
+            <div class="card transparent-glass">
+              <div class="card-body text-white">
+                <div class="forecast mt-2">
+                  <h2>Conditions</h2>
+                  <img id="icon-weather" alt="" />
+                  <p class="forecasttext" id="condition"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-4"></div>
+          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <div class="row">
+              <div class="col-md-4 col-12 mt-3">
+                <div class="card transparent-glass">
+                  <div class="card-body text-white">
+                    <div class="forecast mt-2">
+                      <h2>Temperature</h2>
+                      <p class="forecasttext" id="temperature"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-12 mt-3">
+                <div class="card transparent-glass">
+                  <div class="card-body text-white">
+                    <div class="forecast mt-2">
+                      <h2>Wind Speed</h2>
+                      <p class="forecasttext" id="winds"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-12 mt-3">
+                <div class="card transparent-glass">
+                  <div class="card-body text-white">
+                    <div class="forecast mt-2">
+                      <h2>Humidity</h2>
+                      <p class="forecasttext" id="humidity"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-12 mt-3">
+                <div class="card transparent-glass">
+                  <div class="card-body text-white">
+                    <div class="forecast mt-2">
+                      <h2>Pressure</h2>
+                      <p class="forecasttext" id="pressure"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-12 mt-3">
+                <div class="card transparent-glass">
+                  <div class="card-body text-white">
+                    <div class="forecast mt-2">
+                      <h2>Ultra Violet Level</h2>
+                      <p class="forecasttext" id="uv"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-12 mt-3">
+                <div class="card transparent-glass">
+                  <div class="card-body text-white">
+                    <div class="forecast mt-2">
+                      <h2>Change of Rain</h2>
+                      <p class="forecasttext" id="rain"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
         </div>
       </div>
     </section>
-
-    <section class="section-form">
-      <form class="d-flex justify-content-center mt-4">
-        <input
-          class="form-control me-2 w-25"
-          type="text"
-          placeholder="Input the Region Name"
-          id="search-region"
-        />
-        <input
-          class="form-control me-2 w-25"
-          type="date"
-          id="dateInput"
-          placeholder="dd/mm/yy"
-        />
-        <button class="btn btn-info fw-semibold" id="btn-submit" type="button">
-          Search
-        </button>
-      </form>
-    </section>
-    <!-- Section 1 end -->
+    <!-- Section 2 end -->
 
     <script src="/assets/js/script.js"></script>
     <!-- Bootstrap JS from CDN -->
