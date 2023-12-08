@@ -10,8 +10,6 @@ let wind = document.querySelector("#winds");
 let city = document.querySelector("#city");
 let dateValue = document.querySelector("#date-value");
 const inputDate = document.querySelector("#dateInput");
-const inputTime = document.querySelector("#timeInput");
-const timeValue = document.querySelector("#time-value");
 const icon = document.querySelector("#icon-weather");
 let today = new Date();
 let dateNow = today.toLocaleDateString();
@@ -24,6 +22,11 @@ const formatDate = (inputDate) => {
   );
   return formattedDate;
 };
+
+// Mendapatkan tanggal maksimal h-7 dari hari ini
+var maxDate = new Date(today);
+maxDate.setDate(today.getDate() - 7);
+var maxDateString = maxDate.toISOString().split("T")[0];
 
 const options = {
   method: "GET",
@@ -44,6 +47,20 @@ uvLevel.innerHTML = 0;
 btn.addEventListener("click", (e) => {
   e.preventDefault();
 
+  if (inputDate.value == "") {
+    alert("Tanggal harus diisi");
+    return;
+  }
+
+  // Mengubah format inputDate menjadi objek Date
+  const selectedDate = new Date(inputDate.value);
+
+  // Memeriksa apakah tanggal yang dipilih lebih kecil dari 7 hari dari hari ini
+  if (selectedDate < maxDate) {
+    alert("Maksimal tanggal yang dapat diinput adalah h-7 dari hari ini");
+    return;
+  }
+
   let fatchApi;
   if (inputDate.value == "") {
     fatchApi = fetch(
@@ -58,10 +75,14 @@ btn.addEventListener("click", (e) => {
   }
 
   fatchApi
-    .then((response) => response.json())
-    
     .then((response) => {
+      if (!response.ok) {
+        throw new Error("Kota tidak ditemukan dalam API.");
+      }
+      return response.json();
+    })
 
+    .then((response) => {
       condition.innerHTML =
         response.forecast.forecastday[0].hour[timeNow].condition.text;
       temperatur.innerHTML =
@@ -86,7 +107,7 @@ btn.addEventListener("click", (e) => {
       icon.classList.add("icon");
     })
     .catch((err) => {
-      alert("Maksimal tanggal yang dapat diinput adalah h-7 dari hari ini");
+      alert(err.message);
       return;
     });
 });
